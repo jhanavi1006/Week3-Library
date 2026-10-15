@@ -1,33 +1,68 @@
-﻿public string Author
-{
-    get { return author; }
-    set
-    {
-        // Checks if any character in the incoming string is a digit
-        if (!value.Any(char.IsDigit))
-        {
-            author = value;
-        }
-        else
-        {
-            Console.WriteLine("Error: Author name cannot contain numbers.");
-        }
-    }
-}
+﻿
+using System;
+using System.Linq;
 
-public string ISBN
+namespace Library
 {
-    get { return isbn; }
-    set
+    public class Book
     {
-        // Checks that the incoming string is not blank
-        if (value != "")
+        private string title;
+        private string author;
+        private string isbn;
+
+        public string Title
         {
-            isbn = value;
+            get { return title; }
+            set { title = value; }
         }
-        else
+
+        public string Author
         {
-            Console.WriteLine("Error: ISBN cannot be blank.");
+            get { return author; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value) &&
+                    !value.Any(char.IsDigit))
+                {
+                    author = value;
+                }
+                else
+                {
+                    Console.WriteLine(
+                        "Error: Author name cannot contain numbers.");
+                }
+            }
+        }
+
+        public string ISBN
+        {
+            get { return isbn; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    isbn = value;
+                }
+                else
+                {
+                    Console.WriteLine("Error: ISBN cannot be blank.");
+                }
+            }
+        }
+
+        public Book(string bookTitle, string bookAuthor, string bookISBN)
+        {
+            Title = bookTitle;
+            Author = bookAuthor;
+            ISBN = bookISBN;
+        }
+
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Book title: {Title}");
+            Console.WriteLine($"Book Author: {Author}");
+            Console.WriteLine($"Book ISBN: {ISBN}");
+            Console.WriteLine();
         }
     }
 }
