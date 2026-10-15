@@ -1,21 +1,24 @@
-﻿public class Book
+﻿namespace Library
 {
-    string Title;
-    string Author;
-    string ISBN;
-
-    public Book(string bookTitle, string bookAuthor, string bookISBN)
+    class Book
     {
-        this.Title = bookTitle;
-        this.Author = bookAuthor;
-        this.ISBN = bookISBN;
-    }
+        string Title;
+        string Author;
+        string ISBN;
 
-    void DisplayInfo()
-    {
-        Console.WriteLine($"Book title: {Title}");
-        Console.WriteLine($"Book Author: {Author}");
-        Console.WriteLine($"Book ISBN: {ISBN}");
-        Console.WriteLine();
+        public Book(string bookTitle, string bookAuthor, string bookISBN)
+        {
+            this.Title = bookTitle;
+            this.Author = bookAuthor;
+            this.ISBN = bookISBN;
+        }
+
+        void DisplayInfo()
+        {
+            Console.WriteLine($"Book title: {Title}");
+            Console.WriteLine($"Book Author: {Author}");
+            Console.WriteLine($"Book ISBN: {ISBN}");
+            Console.WriteLine();
+        }
     }
 }
