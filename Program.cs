@@ -1,13 +1,26 @@
-﻿using Library;
+﻿
+using System;
 
-class Program
+namespace Library
 {
-    static void Main(string[] args)
+    class Program
     {
-        // Create a new instance (object) of the Book class
-        // Note how the object name differs from the class name
-        Book book = new Book("C# for beginners", "Bill Gates", "1234567");
+        static void Main(string[] args)
+        {
+            Book book1 = new Book(
+                "C# for beginners",
+                "Bill Gates",
+                "1234567"
+            );
 
-        book.DisplayInfo();
+            Book book2 = new Book(
+                "Ultimate C#",
+                "Microsoft",
+                "2233445"
+            );
+
+            book1.DisplayInfo();
+            book2.DisplayInfo();
+        }
     }
 }
